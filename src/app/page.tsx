@@ -13,9 +13,9 @@ export default async function Home() {
   return (
     <div>
       <Header />
-      <NowPlaying />;
+      <NowPlaying />
       <ArrowButton />
-      <div className="grid grid-cols-6 gap-8 px-20 grid-rows-2">
+      <div className="grid grid-cols-6 gap-x-40 gap-10 max-w-[1280px] m-auto ">
         {upComing.results.map((movie: MovieType, index: number) => {
           return <MovieCard movie={movie} key={index} />;
         })}
@@ -26,7 +26,7 @@ export default async function Home() {
           see more <ArrowRight />
         </Button> */}
       </div>
-      <div className="grid grid-cols-6 gap-8 px-20">
+      <div className="grid grid-cols-6 gap-x-40 gap-10 max-w-[1280px] m-auto ">
         {popular.results.map((movie: MovieType, index: number) => {
           return <MovieCard movie={movie} key={index} />;
         })}

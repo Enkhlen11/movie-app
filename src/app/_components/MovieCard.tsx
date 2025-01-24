@@ -3,7 +3,7 @@ import { MovieType } from "../util/types";
 import { Card, CardContent } from "@/components/ui/card";
 export const MovieCard = ({ movie }: { movie: MovieType }) => {
   return (
-    <Card className=" w-[230px]   ">
+    <Card className=" w-[230px] rounded-lg">
       <CardContent>
         <Image
           width={1000}
