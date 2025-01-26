@@ -1,20 +1,19 @@
-import Image from "next/image";
-import { MovieType } from "../util/types";
-import { Card, CardContent } from "@/components/ui/card";
-import Link from "next/link";
 import { TOKEN } from "../util/constants";
-export default async function MovieCard() {
+import { MovieType } from "../util/types";
+import Image from "next/image";
+import Link from "next/link";
+export default async function UpComing() {
   const response = await fetch(
-    "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
+    "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1",
     {
       headers: {
-        Authorization: `Bearer ${TOKEN}`,
+        Autorization: `Bearer${TOKEN}`,
         "Content-Type": "application/json",
       },
     }
   );
   const data = await response.json();
-  console.log(data); /// cheejil
+  //   console.log(data);
   return (
     <div className="max-w-[1280px] flex m-auto flex-wrap gap-[32px] mb-[32px]">
       {data.results?.slice(0, 10).map((movie: MovieType, index: number) => {

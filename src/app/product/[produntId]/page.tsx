@@ -43,8 +43,8 @@ export default async function page1({
     //style
     <div>
       <div>
-        <h1>{data.original_title}</h1>
-        <h2>{data.release_date}</h2>
+        <h1 className="text-[24px], font-semibold">{data.original_title}</h1>
+        <h2 className="text-[14px]">{data.release_date}</h2>
         {/* <p>{data.adult ? "R" : "PG"}</p>
         <p>Rating</p>
         <p>{formatVoteAverage(data.runtime)}</p>
@@ -56,7 +56,7 @@ export default async function page1({
           alt=""
         />
 
-        <p>{data.overview}</p>
+        <p className="text-[16px]">{data.overview}</p>
       </div>
     </div>
   );
