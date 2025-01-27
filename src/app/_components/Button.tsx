@@ -4,7 +4,7 @@ import Link from "next/link";
 export function ArrowButton() {
   return (
     <div className="flex justify-between items-center mt-8 max-w-[1280px] m-auto ">
-      <p className="text-[24px] font-semibold">Popular</p>
+      <p className="text-[24px] font-semibold">hi</p>
 
       <Button>
         see more

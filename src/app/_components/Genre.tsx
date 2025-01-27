@@ -30,20 +30,22 @@ export async function Genre() {
         <ChevronDown />
         Genre
       </DropdownMenuTrigger>
-      <DropdownMenuContent className=" w-[537px] h-[293px]">
+      <DropdownMenuContent className=" w-[577px] h-[333px] ">
         <DropdownMenuLabel className="text-[24px] font-semibold ">
           Genres
         </DropdownMenuLabel>
         <p>See lists of movies by genre</p>
-        <DropdownMenuSeparator className=" " />
-
-        {movies.map((data: GenreType, index: number) => {
-          return (
-            <DropdownMenuItem className="rounded-[9px] border-2 flex justify-center items-center ">
-              {data.name} <ChevronRight className="w-[20px]" />
-            </DropdownMenuItem>
-          );
-        })}
+        <div className="flex flex-wrap border-t-2 gap-3 pt-[4px]">
+          {movies.map((data: GenreType, index: number) => {
+            return (
+              <div className="">
+                <div className="rounded-[9px] border-[1px] flex justify-center items-center p-[5px] ">
+                  {data.name} <ChevronRight className="w-[20px]" />
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </DropdownMenuContent>
     </DropdownMenu>
   );

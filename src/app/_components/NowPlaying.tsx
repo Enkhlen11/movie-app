@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 import * as React from "react";
 import Autoplay from "embla-carousel-autoplay";
 
@@ -13,34 +13,22 @@ import {
 import { Button } from "@/components/ui/button";
 import { MovieType } from "../util/types";
 
-import { TOKEN } from "../util/constants";
 import { Play } from "lucide-react";
 
-export async function NowPlaying() {
-  //   const [data, setdata] = React.useState<MovieType[] | null>(null);
-  //   const plugin = React.useRef(
-  //     Autoplay({ delay: 2000, stopOnInteraction: true })
-  //   );
-  const response = await fetch(
-    `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1`,
-    {
-      headers: {
-        Authorization: `Bearer ${TOKEN}`,
-        "Content-Type": "application/json",
-      },
-    }
+export function NowPlaying({ data }: { data: MovieType[] }) {
+  const plugin = React.useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: true })
   );
-  const datas = await response.json();
-  // console.log("datas", datas);
+
   return (
     <Carousel
-      //   plugins={[plugin.current]}
+      plugins={[plugin.current]}
       className="w-[100%] h-[600px] m-auto"
-      //   onMouseEnter={plugin.current.stop}
-      //   onMouseLeave={plugin.current.reset}
+      onMouseEnter={plugin.current.stop}
+      onMouseLeave={plugin.current.reset}
     >
       <CarouselContent className="w-[100%] h-[600px]">
-        {datas.results.map((movie: MovieType, index: number) => (
+        {data.map((movie: MovieType, index: number) => (
           <CarouselItem key={index}>
             <Card className="w-[100%] h-[600px]">
               <CardContent className="aspect-square h-[100%] w-[100%] relative ">

@@ -3,12 +3,12 @@ import { MovieType } from "@/app/util/types";
 import Image from "next/image";
 
 export default async function page1({
-  params: { produntId },
+  params: { productId },
 }: {
-  params: { produntId: string };
+  params: { productId: string };
 }) {
   const response = await fetch(
-    `https://api.themoviedb.org/3/movie/${produntId}?language=en-US`,
+    `https://api.themoviedb.org/3/movie/${productId}?language=en-US`,
     {
       headers: {
         Authorization: `Bearer ${TOKEN}`,
@@ -17,7 +17,7 @@ export default async function page1({
     }
   );
   const responseStar = await fetch(
-    `https://api.themoviedb.org/3/movie/${produntId}/credits?language=en-US`,
+    `https://api.themoviedb.org/3/movie/${productId}/credits?language=en-US`,
     {
       headers: {
         Authorization: `Bearer ${TOKEN}`,
@@ -55,8 +55,13 @@ export default async function page1({
           src={"https://image.tmdb.org/t/p/w500" + data.poster_path}
           alt=""
         />
-
-        <p className="text-[16px]">{data.overview}</p>
+        <div className="flex flex-col  gap-[5px]">
+          <p>kino janar turul baina </p>
+          <p className="text-[16px]">{data.overview}</p>
+          <h2 className="border-b-[1px] text-[16px] font-bold">Director</h2>
+          <h2 className="border-b-[1px] text-[16px] font-bold">Writers</h2>
+          <h2 className="border-b-[1px] text-[16px] font-bold">Stars</h2>
+        </div>
       </div>
     </div>
   );
