@@ -26,21 +26,21 @@ export async function Genre() {
   const movies = data.genres;
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="flex ">
-        <ChevronDown />
+      <DropdownMenuTrigger className="flex w-[97px] h-[36px] px-4 py-2 border-[1px] rounded-md text-[14px] gap-2">
+        <ChevronDown className="w-[16px]" />
         Genre
       </DropdownMenuTrigger>
       <DropdownMenuContent className=" w-[577px] h-[333px] ">
         <DropdownMenuLabel className="text-[24px] font-semibold ">
           Genres
         </DropdownMenuLabel>
-        <p>See lists of movies by genre</p>
+        <p className="mb-[4px] text-[16px]">See lists of movies by genre</p>
         <div className="flex flex-wrap border-t-2 gap-3 pt-[4px]">
           {movies.map((data: GenreType, index: number) => {
             return (
               <div className="">
-                <div className="rounded-[9px] border-[1px] flex justify-center items-center p-[5px] ">
-                  {data.name} <ChevronRight className="w-[20px]" />
+                <div className="rounded-[9px] font-semibold text-[12px]  px-[4px] border-[1px] flex justify-center items-center mt-[4px] gap-2">
+                  {data.name} <ChevronRight className="w-[16px]" />
                 </div>
               </div>
             );
