@@ -1,4 +1,5 @@
 import { TOKEN } from "@/app/util/constants";
+import { creditType } from "@/app/util/credits";
 import { MovieType } from "@/app/util/types";
 import Image from "next/image";
 
@@ -60,7 +61,12 @@ export default async function page1({
           <p className="text-[16px]">{data.overview}</p>
           <h2 className="border-b-[1px] text-[16px] font-bold">Director</h2>
           <h2 className="border-b-[1px] text-[16px] font-bold">Writers</h2>
-          <h2 className="border-b-[1px] text-[16px] font-bold">Stars</h2>
+          <h2 className="border-b-[1px] text-[16px] font-bold">
+            Stars
+            {dataStar.cast
+              .slice(0, 10)
+              .map((movie: creditType, index: number) => {})}
+          </h2>
         </div>
       </div>
     </div>
