@@ -14,10 +14,7 @@ export function Header() {
         <Genre />
         <div className="flex w-[355px] rounded-[8px] px-[12px] gap-10 items-center bg-[#fffff] border-[1px]">
           <Search />
-          <Input
-            placeholder="Search"
-            className="border-none px-3  focus:outline-none"
-          />
+          <Input placeholder="Search" className="border-none px-3  " />
         </div>
       </div>
       <ModeToggle />
