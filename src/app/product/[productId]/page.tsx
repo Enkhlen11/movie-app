@@ -2,6 +2,7 @@ import { TOKEN } from "@/app/util/constants";
 import { creditType } from "@/app/util/credits";
 import { trailerType } from "@/app/util/trailerType";
 import { MovieType } from "@/app/util/types";
+import { Card } from "@/components/ui/card";
 import Image from "next/image";
 
 export default async function page1({
@@ -45,6 +46,17 @@ export default async function page1({
       },
     }
   );
+  const genrelist = await fetch(
+    `https://api.themoviedb.org/3/genre/movie/list?language=en`,
+    {
+      headers: {
+        Authorization: `bearer ${TOKEN}`,
+        "Content-Type": "application/json",
+      },
+    }
+  );
+
+  // console.log("genre", data);
   // function formatVoteAverage(vote: number) {
   //   const hours = Math.floor(vote / 60);
   //   const minutes = vote % 60;
@@ -56,13 +68,15 @@ export default async function page1({
   // }
 
   const data = await response.json();
-  // console.log(data);
+  console.log(data);
   const dataStar = await responseStar.json();
   // console.log(dataStar);
   const dataVideos = await responseVideos.json();
   // console.log(dataVideos);
   const dataSimilar = await similarData.json();
-  console.log(dataSimilar);
+  // console.log(dataSimilar);
+  const dataList = await genrelist.json();
+  // console.log(dataList);
   return (
     //style
     <div className="max-w-[1280px] m-auto">
@@ -75,11 +89,14 @@ export default async function page1({
 
         <p>{formatVoteAverage2(data.vote_average)}</p> */}
         <div className="flex gap-8">
-          <img
+          <Image
+            src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
             className="w-[290px] h-[428px]"
-            src={"https://image.tmdb.org/t/p/w500" + data.poster_path}
+            width={229.73}
+            height={340}
             alt=""
           />
+          {/* <p>{dataList.}</p> */}
           <div>
             <div>
               <iframe
@@ -125,10 +142,32 @@ export default async function page1({
             </h2>
           </div>
         </div>
-        <div>
-          {dataSimilar.slice(0, 5).map((movie: MovieType, id: number) => {
-            return <div>{movie.poster_path}</div>;
-          })}
+        <div className="flex gap-8 mt-20 mb-20">
+          {dataSimilar.results
+            .slice(0, 5)
+            .map((movie: MovieType, id: number) => {
+              return (
+                <Card>
+                  <div className="">
+                    <div className="">
+                      <Image
+                        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                        width={229.73}
+                        height={340}
+                        alt=""
+                      />
+                    </div>
+                    <div className="p-2">
+                      <div className=" flex items-center">
+                        <p>⭐️ {movie.vote_average.toFixed(1)}</p>
+                        <p className="text-[#71717A] text-[12px]">/10</p>
+                      </div>
+                      <h2 className="text-[18px]">{movie.original_title}</h2>
+                    </div>
+                  </div>
+                </Card>
+              );
+            })}
         </div>
       </div>
     </div>
