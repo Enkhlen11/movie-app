@@ -1,5 +1,6 @@
 import { TOKEN } from "@/app/util/constants";
 import { creditType } from "@/app/util/credits";
+import { GenreType } from "@/app/util/genre";
 import { trailerType } from "@/app/util/trailerType";
 import { MovieType } from "@/app/util/types";
 import { Card } from "@/components/ui/card";
@@ -68,7 +69,7 @@ export default async function page1({
   // }
 
   const data = await response.json();
-  console.log(data);
+  // console.log(data);
   const dataStar = await responseStar.json();
   // console.log(dataStar);
   const dataVideos = await responseVideos.json();
@@ -96,20 +97,27 @@ export default async function page1({
             height={340}
             alt=""
           />
-          {/* <p>{dataList.}</p> */}
           <div>
-            <div>
-              <iframe
-                className="w-[760px] h-[428px]"
-                width="874"
-                height="492"
-                src={`https://www.youtube.com/embed/${dataVideos.results[0].key}`}
-              ></iframe>
-            </div>
+            <iframe
+              className="w-[760px] h-[428px]"
+              width="874"
+              height="492"
+              src={`https://www.youtube.com/embed/${dataVideos.results[0].key}`}
+            ></iframe>
           </div>
         </div>
-        <div className="flex flex-col  gap-[5px]">
-          <p className="">kino janar turul baina </p>
+        <div>
+          <div className="">
+            <div className="flex gap-8 flex my-[20px] ">
+              {data.genres.map((genre: GenreType, index: number) => {
+                return (
+                  <div className="border-[1px] rounded-xl px-4 font-semibold">
+                    {genre.name}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
           <p className="text-[16px] w-[100%]">{data.overview}</p>
           <div className="border-b-[1px] text-[16px]  flex gap-16">
             <p className="text-[16px] w-[64px] font-bold">Director</p>
