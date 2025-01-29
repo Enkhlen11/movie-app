@@ -1,5 +1,4 @@
 import { TOKEN } from "./util/constants";
-import { ArrowButton } from "./_components/Button";
 import { NowPlaying } from "./_components/NowPlaying";
 import Popular from "./_components/Popular";
 import UpComing from "./_components/UpComing";
@@ -20,7 +19,6 @@ export default async function Home() {
   return (
     <div>
       <NowPlaying data={datas.results} />
-      <ArrowButton />
       <UpComing />
       <Popular />
       <TopRated />

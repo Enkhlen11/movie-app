@@ -108,7 +108,7 @@ export default async function page1({
         </div>
         <div>
           <div className="">
-            <div className="flex gap-8 flex my-[20px] ">
+            <div className="flex gap-8 my-[20px] ">
               {data.genres.map((genre: GenreType, index: number) => {
                 return (
                   <div className="border-[1px] rounded-xl px-4 font-semibold">
@@ -125,7 +125,7 @@ export default async function page1({
               {dataStar.cast
                 .slice(0, 1)
                 .map((movie: creditType, id: number) => {
-                  return <div>{movie.name}</div>;
+                  return <div className="text-[16px]">{movie.name}</div>;
                 })}
             </p>
           </div>
@@ -135,7 +135,7 @@ export default async function page1({
               {dataStar.crew
                 .slice(0, 1)
                 .map((movie: creditType, id: number) => {
-                  return <div>{movie.name}</div>;
+                  return <div className="text-[16px]">{movie.name}</div>;
                 })}
             </h2>
           </div>
@@ -145,7 +145,7 @@ export default async function page1({
               {dataStar.cast
                 .slice(0, 5)
                 .map((movie: creditType, index: number) => {
-                  return <div>·{movie.name}</div>;
+                  return <div className="text-[16px]">· {movie.name}</div>;
                 })}
             </h2>
           </div>
