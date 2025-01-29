@@ -21,7 +21,7 @@ export default async function Popular() {
       <div className="flex justify-between  items-center m-auto">
         <p className="text-[24px] font-semibold ">Popular</p>
         <p className="flex justify-center items-center">
-          <ArrowButton linkUrl={"populer"} />
+          <ArrowButton linkUrl={"popular"} />
         </p>
       </div>
       <div className="flex flex-wrap gap-[32px]">

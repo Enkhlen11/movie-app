@@ -7,7 +7,6 @@ export async function ArrowButton({ linkUrl }: { linkUrl: string }) {
   return (
     <Link href={`/category/${linkUrl}`}>
       <div className="flex justify-between items-center mt-8 max-w-[1280px] m-auto ">
-        <p className="text-[24px] font-semibold"></p>
         <Button variant={"secondary"}>
           see more
           <ArrowRight />
