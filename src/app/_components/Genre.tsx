@@ -12,9 +12,7 @@ import { MovieType } from "../util/types";
 import { GenreType } from "../util/genre";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
-import { Toggle } from "@/components/ui/toggle";
-import { ToggleGroup } from "@radix-ui/react-toggle-group";
-import { ToggleGroupItem } from "@/components/ui/toggle-group";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useRouter } from "next/router";
 
 export async function Genre() {
@@ -22,18 +20,20 @@ export async function Genre() {
     `https://api.themoviedb.org/3/genre/movie/list?language=en`,
     {
       headers: {
-        Authorization: `bearer ${TOKEN}`,
+        Authorization: `Bearer ${TOKEN}`,
         "Content-Type": "application/json",
       },
     }
   );
-  const router = useRouter();
-  // const style={color:router.}
-  const data = await genre.json();
-  // console.log("genre", data);
-  const movies = data.genres;
-  const changeHandler = (values: string[]) => {
-    router.push(`/genres?${}`);
+}
+const data = await genre.json();
+const movies = data.genres;
+console.log("genre", data);
+const router = useRouter();
+const style={color:router.}
+
+const changeHandler = (values: string[]) => {router.push(`/genres?${data.id}`);}
+    
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="flex w-[97px] h-[36px] px-4 py-2 border-[1px] rounded-md text-[14px] gap-2">
@@ -62,6 +62,5 @@ export async function Genre() {
         </div>
       </DropdownMenuContent>
     </DropdownMenu>
-   
   );
-}
+};
