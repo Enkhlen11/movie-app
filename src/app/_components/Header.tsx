@@ -1,11 +1,11 @@
-import { ModeToggle } from "@/components/ui/mode-toggle";
+import ThemeChanger from "@/components/ui/themeChanger";
 import { Search } from "lucide-react";
 import FilmLogo from "./FilmLogo";
 import { Input } from "@/components/ui/input";
 import { Genre } from "./Genre";
 export function Header() {
   return (
-    <div className="flex max-w-[1280px]  justify-between items-center m-auto ">
+    <div className="flex max-w-[1280px] mt-[15px]  justify-between items-center m-auto ">
       <div className="flex gap-1">
         <FilmLogo />
         <p className="italic text-[16px] text-[#4338CA] font-bold ">Movie Z</p>
@@ -17,7 +17,7 @@ export function Header() {
           <Input placeholder="Search" className="border-none px-3  " />
         </div>
       </div>
-      <ModeToggle />
+      <ThemeChanger />
     </div>
   );
 }
