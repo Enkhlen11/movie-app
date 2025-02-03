@@ -25,10 +25,10 @@ export default function Footer() {
         <div>
           <p className="mb-[12px]">Follow us </p>
           <div className="flex gap-12">
-            <a href="">Facebook</a>
-            <a href="">Instagram</a>
-            <a href="">Twitter</a>
-            <a href="">Youtube</a>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+            <a href="#">Youtube</a>
           </div>
         </div>
       </div>

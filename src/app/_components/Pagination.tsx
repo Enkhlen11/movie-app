@@ -1,3 +1,4 @@
+"use Client";
 import {
   Pagination,
   PaginationContent,
@@ -7,8 +8,11 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { useSearchParams } from "next/navigation";
 
 export function PaginationDemo() {
+  const searchPharams = useSearchParams;
+
   return (
     <Pagination>
       <PaginationContent>

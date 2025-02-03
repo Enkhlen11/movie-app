@@ -1,5 +1,5 @@
 import * as React from "react";
-const FilmLogo = (props) => (
+const FilmLogo = () => (
   <svg
     width="20"
     height="21"

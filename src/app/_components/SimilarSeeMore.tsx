@@ -2,9 +2,9 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-export async function ArrowButton({ linkUrl }: { linkUrl: string }) {
+export default async function SimilarMore({ linkUrl }: { linkUrl: string }) {
   return (
-    <Link href={`/details/${linkUrl}`}>
+    <Link href={`/category/${linkUrl}`}>
       <Button
         variant={"secondary"}
         className="flex justify-between items-center mt-8 max-w-[1280px] m-auto "

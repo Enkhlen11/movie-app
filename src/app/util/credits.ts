@@ -1,4 +1,4 @@
-export type creditType = {
+export type CreditType = {
   adult: boolean;
   gender: number;
   id: number;

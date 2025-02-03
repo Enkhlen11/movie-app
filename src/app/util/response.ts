@@ -1,4 +1,5 @@
 import { TOKEN } from "./constants";
+
 export default async function response(endpoint: string) {
   const response = await fetch(`https://api.themoviedb.org/3/${endpoint}`, {
     headers: {
@@ -7,6 +8,5 @@ export default async function response(endpoint: string) {
     },
   });
   const data = await response.json();
-  // console.log(data);
   return data;
 }

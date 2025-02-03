@@ -8,11 +8,11 @@ import Link from "next/link";
 const Page = async ({
   params,
 }: {
-  params: Promise<{ categoryType: string }>;
+  params: Promise<{ detailsType: string }>;
 }) => {
-  const categoryType = (await params).categoryType;
+  const detailsType = (await params).detailsType;
   const data = await fetch(
-    `https://api.themoviedb.org/3/movie/${categoryType}?language=en-US&page=1`,
+    `https://api.themoviedb.org/3/movie/${detailsType}?language=en-US&page=1`,
     {
       headers: {
         Authorization: `Bearer ${TOKEN}`,
@@ -21,12 +21,10 @@ const Page = async ({
     }
   );
   const dataAll = await data.json();
-  console.log(dataAll);
   return (
     <div className="max-w-[1280px] m-auto ">
       <div className="flex justify-between  items-center m-auto">
         <p className="text-[24px] font-semibold ">Up coming</p>
-
         <ArrowButton linkUrl={"upcoming"} />
       </div>
       <div className=" flex m-auto flex-wrap gap-[32px] mb-[32px]">

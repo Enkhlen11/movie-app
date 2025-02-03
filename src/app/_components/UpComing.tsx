@@ -18,7 +18,7 @@ export default async function UpComing() {
   const data = await response.json();
   // console.log(data);
   return (
-    <div className="max-w-[1280px] m-auto ">
+    <div className="max-w-[1200px] m-auto ">
       <div className="flex justify-between  items-center m-auto">
         <p className="text-[24px] font-semibold ">Up coming</p>
         <ArrowButton linkUrl={"upcoming"} />
@@ -29,20 +29,18 @@ export default async function UpComing() {
             <Link href={`/product/${movie.id}`} key={index}>
               <Card>
                 <CardContent key={index}>
-                  <div>
-                    <Image
-                      src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
-                      width={229.73}
-                      height={340}
-                      alt=""
-                    />
-                    <div className="p-2">
-                      <div className="flex items-center">
-                        <p>⭐️ {movie.vote_average.toFixed(1)}</p>
-                        <p className="text-[#71717A] text-[12px]">/10</p>
-                      </div>
-                      <h2 className="text-[18px] ">{movie.original_title}</h2>
+                  <Image
+                    src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
+                    width={229.73}
+                    height={340}
+                    alt=""
+                  />
+                  <div className="p-2">
+                    <div className="flex items-center ">
+                      <p>⭐️ {movie.vote_average.toFixed(1)}</p>
+                      <p className="text-[#71717A] text-[12px]">/10</p>
                     </div>
+                    <h2 className="text-[18px] ">{movie.original_title}</h2>
                   </div>
                 </CardContent>
               </Card>

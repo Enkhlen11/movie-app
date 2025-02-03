@@ -50,24 +50,23 @@ export function Genre() {
           Genres
         </DropdownMenuLabel>
         <p className="mb-[4px] text-[16px]">See lists of movies by genre</p>
-        <div className="flex flex-wrap border-t-2 gap-3 pt-[4px]">
-          <ToggleGroup type="multiple" className="flex flex-wrap">
-            {movies?.map((data: GenreType, index: number) => {
-              return (
-                <ToggleGroupItem
-                  onClick={() => router.push(`/genres?genresId=${data?.id}`)}
-                  value={data.id.toString()}
-                >
-                  <div key={index}>
-                    <div className="rounded-[9px] font-semibold text-[12px]  px-[4px] border-[1px] flex justify-center items-center mt-[4px] gap-2">
-                      {data.name} <ChevronRight className="w-[16px]" />
-                    </div>
-                  </div>
-                </ToggleGroupItem>
-              );
-            })}
-          </ToggleGroup>
-        </div>
+        <ToggleGroup
+          type="multiple"
+          className="flex flex-wrap border-t-2 gap-3 pt-[4px]"
+        >
+          {movies?.map((data: GenreType, index: number) => {
+            return (
+              <ToggleGroupItem
+                onClick={() => router.push(`/genres?genresId=${data?.id}`)}
+                value={data.id.toString()}
+                key={index}
+                className="rounded-[9px] font-semibold text-[12px]  px-[4px] border-[1px] flex justify-center items-center mt-[4px] gap-2"
+              >
+                {data.name} <ChevronRight className="w-[16px]" />
+              </ToggleGroupItem>
+            );
+          })}
+        </ToggleGroup>
       </DropdownMenuContent>
     </DropdownMenu>
   );
