@@ -1,4 +1,5 @@
 import { ArrowButton } from "@/app/_components/Button";
+import PlayButton from "@/app/_components/PlayButton";
 import SimilarMore from "@/app/_components/SimilarSeeMore";
 import { TOKEN } from "@/app/util/constants";
 import { CreditType } from "@/app/util/credits";
@@ -31,15 +32,15 @@ export default async function page1({
       },
     }
   );
-  const responseVideos = await fetch(
-    `https://api.themoviedb.org/3/movie/${productId}/videos?language=en-US`,
-    {
-      headers: {
-        Authorization: `Bearer ${TOKEN}`,
-        "Content-type": "application/json",
-      },
-    }
-  );
+  // const responseVideos = await fetch(
+  //   `https://api.themoviedb.org/3/movie/${productId}/videos?language=en-US`,
+  //   {
+  //     headers: {
+  //       Authorization: `Bearer ${TOKEN}`,
+  //       "Content-type": "application/json",
+  //     },
+  //   }
+  // );
   const similarData = await fetch(
     ` https://api.themoviedb.org/3/movie/${productId}/similar?language=en-US&page=1`,
     {
@@ -74,7 +75,7 @@ export default async function page1({
   // console.log(data);
   const dataStar = await responseStar.json();
   // console.log(dataStar);
-  const dataVideos = await responseVideos.json();
+  // const dataVideos = await responseVideos.json();
   // console.log(dataVideos);
   const dataSimilar = await similarData.json();
   // console.log(dataSimilar);
@@ -86,11 +87,11 @@ export default async function page1({
       <h1 className="text-[24px] font-semibold">{data.original_title}</h1>
       <h2 className="text-[14px]">{data.release_date}</h2>
       {/* <p>{data.adult ? "R" : "PG"}</p>
-        <p>Rating</p>
-        <p>{formatVoteAverage(data.runtime)}</p>
+      <p>Rating</p>
+      <p>{formatVoteAverage(data.runtime)}</p>
 
-        <p>{formatVoteAverage2(data.vote_average)}</p> */}
-      <div className="flex gap-8">
+      <p>{formatVoteAverage2(data.vote_average)}</p> */}
+      <div className="flex gap-8 relative">
         <Image
           src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
           className="w-[290px] h-[428px]"
@@ -98,13 +99,25 @@ export default async function page1({
           height={340}
           alt=""
         />
-        <div>
+        <Image
+          src={
+            `https://image.tmdb.org/t/p/` + "original" + `${data.backdrop_path}`
+          }
+          className="w-[760px] h-[428px]"
+          width={1000}
+          height={1000}
+          alt=""
+        />
+        {/* <div>
           <iframe
             className="w-[760px] h-[428px]"
             width="874"
             height="492"
             src={`https://www.youtube.com/embed/${dataVideos.results[0].key}`}
           ></iframe>
+        </div> */}
+        <div className="absolute ">
+          <PlayButton movieId={productId} />
         </div>
       </div>
       <div>

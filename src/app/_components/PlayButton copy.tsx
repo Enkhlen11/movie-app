@@ -9,7 +9,7 @@ import {
 import { TOKEN } from "../util/constants";
 import { PlayIcon } from "lucide-react";
 import { TrailerType } from "../util/trailerType";
-async function PlayButton({ movieId }: { movieId: string }) {
+async function PlayButton({ movieId }: { movieId: number }) {
   const trailerVideos = await fetch(
     `https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`,
     {

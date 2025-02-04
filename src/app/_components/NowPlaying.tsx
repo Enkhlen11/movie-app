@@ -14,6 +14,8 @@ import { Button } from "@/components/ui/button";
 import { MovieType } from "../util/types";
 
 import { Play } from "lucide-react";
+import WatchTrailer from "./WatchTrailer";
+import PlayButton from "./PlayButton copy";
 
 export function NowPlaying({ data }: { data: MovieType[] }) {
   const plugin = React.useRef(
@@ -40,34 +42,34 @@ export function NowPlaying({ data }: { data: MovieType[] }) {
                   }
                   className="w-[100%] h-[600px] relative "
                 />
-                <div className="flex flex-col gap-10 absolute text-white left-[140px] bottom-[100px]">
-                  <div>
-                    <p className="text-[16px]">Now playing:</p>
-                    <p className="text-[36px] font-bold">
-                      {movie.original_title}
+                <div className="flex w-[404px] h-[264px] flex-col  absolute text-white left-[140px] bottom-[100px] top-[120px]">
+                  <p className="text-[16px]">Now playing:</p>
+                  <p className="text-[36px] font-bold">
+                    {movie.original_title}
+                  </p>
+                  <div className="flex items-center gap-2">
+                    <p className="text-[18px] font-semibold ">
+                      ⭐️ {movie?.vote_average.toFixed(1)}
                     </p>
-                    <div className="flex items-center">
-                      <p className="text-[18px] font-semibold ">
-                        ⭐️ {movie?.vote_average.toFixed(1)}
-                      </p>
-                      <p className="text-[16px] text-[#71717A]">/10</p>
-                    </div>
+                    <p className="text-[16px] text-[#71717A]">/10</p>
                   </div>
-                  <div>
-                    <p className="w-[302px] ">{movie.overview}</p>
-                  </div>
-                  <Button className="text-[#18181B]" variant={`secondary`}>
-                    <Play />
-                    Watch Trailer
+
+                  <p className="w-[302px] ">{movie.overview}</p>
+
+                  <Button
+                    className="text-[#18181B] w-[145px] h-[40px] mt-[20px]"
+                    variant={`secondary`}
+                  >
+                    <WatchTrailer movieId={movie.id} />
                   </Button>
                 </div>
-                <CarouselPrevious className="absolute top-1/2 translate-y-1/2 left-11" />
-                <CarouselNext className="absolute top-1/2 translate-y-1/2 right-11" />
               </CardContent>
             </Card>
           </CarouselItem>
         ))}
       </CarouselContent>
+      <CarouselPrevious className="absolute top-1/2 translate-y-1/2 left-11" />
+      <CarouselNext className="absolute top-1/2 translate-y-1/2 right-11" />
     </Carousel>
   );
 }
