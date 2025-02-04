@@ -55,13 +55,7 @@ export function NowPlaying({ data }: { data: MovieType[] }) {
                   </div>
 
                   <p className="w-[302px] ">{movie.overview}</p>
-
-                  <Button
-                    className="text-[#18181B] w-[145px] h-[40px] mt-[20px]"
-                    variant={`secondary`}
-                  >
-                    <WatchTrailer movieId={movie.id} />
-                  </Button>
+                  <WatchTrailer movieId={movie.id} />
                 </div>
               </CardContent>
             </Card>

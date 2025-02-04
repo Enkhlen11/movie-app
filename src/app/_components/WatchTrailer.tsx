@@ -29,7 +29,7 @@ function WatchTrailer({ movieId }: { movieId: number }) {
   }, [movieId]);
   return (
     <Dialog>
-      <DialogTrigger className="flex justify-center items-center ">
+      <DialogTrigger className="flex justify-center items-center text-[#18181B] w-[145px] h-[40px] mt-[20px] border-[1px] bg-white">
         <p className="flex w-[40px] h-[40px] justify-center items-center ">
           <PlayIcon />
         </p>
