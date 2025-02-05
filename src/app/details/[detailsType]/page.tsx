@@ -25,11 +25,10 @@ const Page = async ({
     <div className="max-w-[1280px] m-auto ">
       <div className="flex justify-between  items-center m-auto">
         <p className="text-[24px] font-semibold ">Up coming</p>
-        <ArrowButton linkUrl={"upcoming"} />
       </div>
       <div className=" flex m-auto flex-wrap gap-[32px] mb-[32px]">
         {dataAll.results
-          ?.slice(0, 10)
+          ?.slice(0, 20)
           .map((movie: MovieType, index: number) => {
             return (
               <Link href={`/product/${movie.id}`} key={index}>

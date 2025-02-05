@@ -25,7 +25,7 @@ export function NowPlaying({ data }: { data: MovieType[] }) {
   return (
     <Carousel
       plugins={[plugin.current]}
-      className="w-[100%] h-[600px] m-auto "
+      className="w-[100%] h-[600px] m-auto mt-[25px] "
       onMouseEnter={plugin.current.stop}
       onMouseLeave={plugin.current.reset}
     >

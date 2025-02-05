@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Genre } from "./Genre";
 export function Header() {
   return (
-    <div className="flex max-w-[1280px] mt-[15px]  justify-between items-center m-auto ">
+    <div className="flex max-w-[1280px] mt-[20px]  justify-between items-center m-auto ">
       <Link href={`http://localhost:3000/`}>
         <div className="flex gap-1">
           <FilmLogo />

@@ -20,7 +20,7 @@ export default async function page({
     }
   );
   const data = await responseSimilar.json();
-  console.log(data);
+
   return (
     <div className="max-w-[1200px] m-auto  ">
       <div>

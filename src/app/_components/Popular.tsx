@@ -15,16 +15,16 @@ export default async function Popular() {
     }
   );
   const data = await response.json();
-  // console.log(data); /// cheejil
+
   return (
-    <div className="max-w-[1200px] m-auto mb-[32px]">
-      <div className="flex justify-between  items-center m-auto">
-        <p className="text-[24px] font-semibold ">Popular</p>
+    <div className="max-w-[1200px] m-auto ">
+      <div className="flex justify-between  items-center m-auto ">
+        <p className="text-[24px] font-semibold mb-[32px]">Popular</p>
         <div className="flex justify-center items-center">
           <ArrowButton linkUrl={"popular"} />
         </div>
       </div>
-      <div className="flex flex-wrap gap-[32px]">
+      <div className="flex flex-wrap gap-[12px]">
         {data.results?.slice(0, 10).map((movie: MovieType, index: number) => {
           return (
             <Link href={`/product/${movie.id}`} key={index}>

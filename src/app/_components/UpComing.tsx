@@ -16,14 +16,14 @@ export default async function UpComing() {
     }
   );
   const data = await response.json();
-  // console.log(data);
+
   return (
-    <div className="max-w-[1200px] m-auto ">
-      <div className="flex justify-between  items-center m-auto">
+    <div className="max-w-[1200px] m-auto mt-[32px]">
+      <div className="flex justify-between  items-center m-auto mb-[32px]">
         <p className="text-[24px] font-semibold ">Up coming</p>
         <ArrowButton linkUrl={"upcoming"} />
       </div>
-      <div className=" flex m-auto flex-wrap gap-[32px] mb-[32px]">
+      <div className=" flex m-auto flex-wrap gap-[12px] mb-[32px]">
         {data.results?.slice(0, 10).map((movie: MovieType, index: number) => {
           return (
             <Link href={`/product/${movie.id}`} key={index}>

@@ -18,7 +18,6 @@ export default function Page() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const genresId = searchParams.get("genresId");
-  console.log("genreIds", genresId);
 
   async function getGenres() {
     const response = await fetch(
@@ -47,7 +46,6 @@ export default function Page() {
     const data = await discoverMovie.json();
     setFilterGenres(data.results);
     setTotalResults(data.total_results);
-    console.log(data);
   }
 
   useEffect(() => {
@@ -56,7 +54,7 @@ export default function Page() {
   }, [genresId]);
 
   const onValueChange = (values: string[]) => {
-    console.log(values);
+    // console.log(values);
     router.push(`/genres?genresId=${values}`);
   };
 

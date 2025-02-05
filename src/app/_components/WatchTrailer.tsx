@@ -20,7 +20,7 @@ function WatchTrailer({ movieId }: { movieId: number }) {
     const useTrailer = trailer.results.find((video: TrailerType) => {
       return video.type === "Trailer";
     });
-    console.log(useTrailer);
+
     setKey(useTrailer.key);
   }
 
@@ -29,11 +29,11 @@ function WatchTrailer({ movieId }: { movieId: number }) {
   }, [movieId]);
   return (
     <Dialog>
-      <DialogTrigger className="flex justify-center items-center text-[#18181B] w-[145px] h-[40px] mt-[20px] border-[1px] bg-white">
+      <DialogTrigger className="flex justify-center items-center text-[#18181B] w-[185px] h-[40px] mt-[20px] border-[1px] bg-white rounded-[6px] px-[16px] py-[8px]">
         <p className="flex w-[40px] h-[40px] justify-center items-center ">
           <PlayIcon />
         </p>
-        <p className="font-medium t-[14px]">Watch Trailer </p>
+        <p className="font-medium">Watch Trailer </p>
       </DialogTrigger>
       <DialogContent className="p-0 border-0 max-w-xl w-[460px] h-[300px]">
         <div>

@@ -15,16 +15,16 @@ export default async function TopRated() {
     }
   );
   const datas = await response.json();
-  // console.log(datas);
+
   return (
-    <div className="max-w-[1200px] m-auto mb-[32px]">
-      <div className="flex justify-between  items-center">
+    <div className="max-w-[1200px] m-auto mt-[32px]">
+      <div className="flex justify-between  items-center mb-[32px]">
         <p className="text-[24px] font-semibold ">Top rated</p>
         <div className="flex">
           <ArrowButton linkUrl={"top_rated"} />
         </div>
       </div>
-      <div className=" flex m-auto flex-wrap gap-[32px] mb-[32px]">
+      <div className=" flex m-auto flex-wrap gap-[12px] mb-[32px]">
         {datas.results?.slice(0, 10).map((movie: MovieType, index: number) => {
           return (
             <Link href={`/product/${movie.id}`} key={index}>

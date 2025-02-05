@@ -18,6 +18,7 @@ import { useRouter } from "next/navigation";
 
 export function Genre() {
   const [movies, setMovies] = useState<GenreType[]>();
+  const [isActive, setIsActive] = useState(false);
   useEffect(() => {
     const getData = async () => {
       const genre = await fetch(
@@ -38,10 +39,15 @@ export function Genre() {
   // const movies = data.genres;
   // console.log("genre", data);
   const router = useRouter();
-
+  const handleClick = () => {
+    setIsActive(!isActive);
+  };
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger className="flex w-[97px] h-[36px] px-4 py-2 border-[1px] rounded-md text-[14px] gap-2">
+    <DropdownMenu open={isActive} onOpenChange={handleClick}>
+      <DropdownMenuTrigger
+        onClick={handleClick}
+        className="flex w-[97px] h-[36px] px-4 py-2 border-[1px] rounded-md text-[14px] gap-2"
+      >
         <ChevronDown className="w-[16px]" />
         Genre
       </DropdownMenuTrigger>
@@ -57,7 +63,11 @@ export function Genre() {
           {movies?.map((data: GenreType, index: number) => {
             return (
               <ToggleGroupItem
-                onClick={() => router.push(`/genres?genresId=${data?.id}`)}
+                onClick={() => {
+                  handleClick();
+                  router.push(`/genres?genresId=${data?.id}`);
+                }}
+                // onPressedChange={()=>{}}
                 value={data.id.toString()}
                 key={index}
                 className="rounded-[9px] font-semibold text-[12px]  px-[4px] border-[1px] flex justify-center items-center mt-[4px] gap-2"
