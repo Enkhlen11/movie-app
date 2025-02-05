@@ -1,15 +1,18 @@
-import WhiteFilmLogo from "./FilmLogo";
+import Link from "next/link";
 
 export default function Footer() {
   return (
     <div className="w-[100%] h-[280px] bg-[#4338CA] py-[40px] flex justify-around">
       <div className="flex flex-col gap-12">
-        <div className="flex gap-8">
-          <img src="logo.svg" alt="" />
-          <p className="italic text-[16px] font-bold text-[#FAFAFA] ">
-            Movie Z
-          </p>
-        </div>
+        <Link href={`http://localhost:3000/`}>
+          <div className="flex gap-2">
+            <img src="logo.svg" alt="" />
+            <p className="italic text-[16px] font-bold text-[#FAFAFA] ">
+              Movie Z
+            </p>
+          </div>
+        </Link>
+
         <p className="text-[14px] text-[#FAFAFA]">
           © 2024 Movie Z. All Rights Reserved.
         </p>
