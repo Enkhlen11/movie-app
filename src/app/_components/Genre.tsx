@@ -63,13 +63,13 @@ export function Genre() {
           {movies?.map((data: GenreType, index: number) => {
             return (
               <ToggleGroupItem
+                key={index}
                 onClick={() => {
                   handleClick();
                   router.push(`/genres?genresId=${data?.id}`);
                 }}
                 // onPressedChange={()=>{}}
                 value={data.id.toString()}
-                key={index}
                 className="rounded-[9px] font-semibold text-[12px]  px-[4px] border-[1px] flex justify-center items-center mt-[4px] gap-2"
               >
                 {data.name} <ChevronRight className="w-[16px]" />

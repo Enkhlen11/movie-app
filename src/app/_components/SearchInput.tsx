@@ -11,13 +11,12 @@ import { TOKEN } from "../util/constants";
 import { MovieType } from "../util/types";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
-
-import { ArrowButton } from "./Button";
 import Link from "next/link";
 
 const SearchInput = () => {
   const [value, setValue] = useState<string>("");
   const [movies, setMovies] = useState([]);
+  const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
     const searchValue = async () => {
@@ -42,9 +41,11 @@ const SearchInput = () => {
   };
   // console.log("value", value);
   // console.log("data", movies);
-
+  const handleClick = () => {
+    setIsActive(!isActive);
+  };
   return (
-    <Popover>
+    <Popover open={isActive} onOpenChange={handleClick}>
       <PopoverTrigger className=" flex w-[355px] rounded-[8px] px-[12px] gap-10 items-center bg-[#fffff] border-[1px] focus:border-black ">
         <SearchIcon className="text-muted-foreground" />
         <Input
@@ -54,7 +55,10 @@ const SearchInput = () => {
           className=" border-none px-3 focus:outline "
         />
       </PopoverTrigger>
-      <PopoverContent className="w-[553px]  flex flex-col justify-center items-center gap-5">
+      <PopoverContent
+        onClick={handleClick}
+        className="w-[553px]  flex flex-col justify-center items-center gap-5"
+      >
         {movies.slice(0, 5).map((movie: MovieType, index: number) => {
           return (
             <Link key={index} href={`/product/${movie.id}`}>
@@ -92,9 +96,9 @@ const SearchInput = () => {
             </Link>
           );
         })}
-        <div>
+        <Link href={`/search/${value}`}>
           <p className="font-medium">See all results for "{value}"</p>
-        </div>
+        </Link>
       </PopoverContent>
     </Popover>
   );
