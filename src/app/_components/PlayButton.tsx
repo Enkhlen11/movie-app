@@ -39,7 +39,7 @@ async function PlayButton({ movieId }: { movieId: string }) {
           <iframe
             width="480"
             height="320"
-            src={`https://www.youtube.com/embed/${useTrailer.key}`}
+            src={`https://www.youtube.com/embed/${useTrailer?.key}`}
           ></iframe>
         </div>
       </DialogContent>

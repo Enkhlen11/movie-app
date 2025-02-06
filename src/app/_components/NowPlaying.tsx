@@ -10,12 +10,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Button } from "@/components/ui/button";
-import { MovieType } from "../util/types";
 
-import { Play } from "lucide-react";
+import { MovieType } from "../util/types";
 import WatchTrailer from "./WatchTrailer";
-import PlayButton from "./PlayButton copy";
 
 export function NowPlaying({ data }: { data: MovieType[] }) {
   const plugin = React.useRef(

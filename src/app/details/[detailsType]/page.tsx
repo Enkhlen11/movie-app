@@ -33,7 +33,7 @@ const Page = async ({
             return (
               <Link href={`/product/${movie.id}`} key={index}>
                 <Card>
-                  <CardContent key={index}>
+                  <CardContent>
                     <div>
                       <Image
                         src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
