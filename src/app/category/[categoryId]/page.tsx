@@ -1,10 +1,8 @@
 import { TOKEN } from "@/app/util/constants";
 import { MovieType } from "@/app/util/types";
 import { Card } from "@/components/ui/card";
-
 import Image from "next/image";
 import Link from "next/link";
-
 export default async function page({
   params: { categoryId },
 }: {

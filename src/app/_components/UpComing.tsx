@@ -1,9 +1,7 @@
-import { Card, CardContent } from "@/components/ui/card";
 import { TOKEN } from "../util/constants";
 import { MovieType } from "../util/types";
-import Image from "next/image";
-import Link from "next/link";
 import { ArrowButton } from "./Button";
+import { MovieCard } from "./MovieCard";
 
 export default async function UpComing() {
   const response = await fetch(
@@ -25,27 +23,7 @@ export default async function UpComing() {
       </div>
       <div className=" flex m-auto flex-wrap gap-[12px] mb-[32px]">
         {data.results?.slice(0, 10).map((movie: MovieType, index: number) => {
-          return (
-            <Link href={`/product/${movie.id}`} key={index}>
-              <Card>
-                <CardContent key={index}>
-                  <Image
-                    src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
-                    width={229.73}
-                    height={340}
-                    alt=""
-                  />
-                  <div className="p-2">
-                    <div className="flex items-center ">
-                      <p>⭐️ {movie.vote_average.toFixed(1)}</p>
-                      <p className="text-[#71717A] text-[12px]">/10</p>
-                    </div>
-                    <h2 className="text-[18px] ">{movie.original_title}</h2>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-          );
+          return <MovieCard movie={movie} key={index} />;
         })}
       </div>
     </div>

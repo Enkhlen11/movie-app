@@ -1,4 +1,3 @@
-import { ArrowButton } from "@/app/_components/Button";
 import PlayButton from "@/app/_components/PlayButton";
 import SimilarMore from "@/app/_components/SimilarSeeMore";
 import { TOKEN } from "@/app/util/constants";
@@ -116,7 +115,7 @@ export default async function page1({
             src={`https://www.youtube.com/embed/${dataVideos.results[0].key}`}
           ></iframe>
         </div> */}
-        <div className="absolute ">
+        <div className="absolute top-[380px] left-[340px]">
           <PlayButton movieId={productId} />
         </div>
       </div>

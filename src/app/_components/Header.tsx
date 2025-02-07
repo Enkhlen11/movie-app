@@ -1,7 +1,5 @@
 import ThemeChanger from "@/components/ui/themeChanger";
-
 import FilmLogo from "./FilmLogo";
-import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { Genre } from "./Genre";
 import SearchInput from "./SearchInput";
