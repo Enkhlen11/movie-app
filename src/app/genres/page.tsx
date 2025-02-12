@@ -55,7 +55,7 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <div className="flex ">
+      <div className="flex flex-col">
         <p className="text-[20px] font-semibold">{totalResults} titles</p>
         <div className="flex flex-wrap gap-[32px]">
           {filterGenres?.map((movie: MovieType, id: number) => {
