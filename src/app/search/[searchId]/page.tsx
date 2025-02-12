@@ -21,7 +21,9 @@ export default function Page() {
   console.log("data", movies);
   return (
     <div className="flex">
-      <div>
+      <p className="text-[30px] font-semibold">Search results</p>
+      <p className="text-[20px] font-semibold">results for </p>
+      <div className="flex flex-wrap gap-[32px]  border-black border-r-[1px]">
         {movies?.map((movie: MovieType, id: number) => {
           return (
             <div key={id}>
@@ -30,10 +32,14 @@ export default function Page() {
           );
         })}
       </div>
-      <div>
-        {genres?.map((genre: GenreType, index: number) => {
-          return <div key={genre.id}>{genre.name}</div>;
-        })}
+      <div className="flex flex-wrap w-[387px] h-[272px]">
+        <p className="text-[24px] font-semibold">Search by genre</p>
+        <p className="text-[16px] ">See lists movies by genre</p>
+        <div className="flex flex-wrap justify-between items-center ">
+          {genres?.map((genre: GenreType, index: number) => {
+            return <div key={genre.id}>{genre.name}</div>;
+          })}
+        </div>
       </div>
     </div>
   );
