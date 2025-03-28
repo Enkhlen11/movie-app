@@ -7,7 +7,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
 import { TOKEN } from "../util/constants";
-import { MovieType } from "../util/types";
 import { GenreType } from "../util/genre";
 import { ChevronRight } from "lucide-react";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";

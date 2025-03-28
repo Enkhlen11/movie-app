@@ -1,4 +1,3 @@
-import { ArrowButton } from "@/app/_components/Button";
 import { TOKEN } from "@/app/util/constants";
 import { MovieType } from "@/app/util/types";
 import { Card, CardContent } from "@/components/ui/card";

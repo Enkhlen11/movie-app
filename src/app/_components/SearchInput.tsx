@@ -1,6 +1,6 @@
 "use client";
 import { Input } from "@/components/ui/input";
-import { ArrowRight, Key, SearchIcon } from "lucide-react";
+import { ArrowRight, SearchIcon } from "lucide-react";
 import {
   Popover,
   PopoverContent,
@@ -97,7 +97,7 @@ const SearchInput = () => {
           );
         })}
         <Link href={`/search/${value}`}>
-          <p className="font-medium">See all results for "{value}"</p>
+          <p className="font-medium">See all results for {value}</p>
         </Link>
       </PopoverContent>
     </Popover>

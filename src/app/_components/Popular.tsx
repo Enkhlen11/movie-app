@@ -1,6 +1,5 @@
 import { TOKEN } from "../util/constants";
 import { MovieType } from "../util/types";
-import { Card, CardContent } from "@/components/ui/card";
 import { ArrowButton } from "./Button";
 import { MovieCard } from "./MovieCard";
 export default async function Popular() {

@@ -1,7 +1,6 @@
-import Link from "next/link";
 import { TOKEN } from "../util/constants";
 import { MovieType } from "../util/types";
-import Image from "next/image";
+
 import { ArrowButton } from "./Button";
 import { MovieCard } from "./MovieCard";
 export default async function TopRated() {

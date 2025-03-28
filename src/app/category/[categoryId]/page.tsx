@@ -1,13 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { TOKEN } from "@/app/util/constants";
 import { MovieType } from "@/app/util/types";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
-export default async function page({
-  params: { categoryId },
-}: {
-  params: { categoryId: string };
-}) {
+export default async function Page({ params }: any) {
+  const categoryId = params.categoryId;
+
   const responseSimilar = await fetch(
     `https://api.themoviedb.org/3/movie/${categoryId}/similar?language=en-US&page=1`,
     {
@@ -27,7 +26,7 @@ export default async function page({
       <div className="flex flex-wrap gap-[32px] ">
         {data.results.map((movie: MovieType, index: number) => {
           return (
-            <Link href={`/product/${movie.id}`}>
+            <Link href={`/product/${movie.id}`} key={index}>
               <Card key={index}>
                 <div>
                   <Image

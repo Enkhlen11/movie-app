@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import PlayButton from "@/app/_components/PlayButton";
 import SimilarMore from "@/app/_components/SimilarSeeMore";
 import { TOKEN } from "@/app/util/constants";
@@ -8,11 +9,8 @@ import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function page1({
-  params: { productId },
-}: {
-  params: { productId: string };
-}) {
+export default async function page1({ params }: any) {
+  const productId = params.productId;
   const response = await fetch(
     `https://api.themoviedb.org/3/movie/${productId}?language=en-US`,
     {
@@ -49,15 +47,15 @@ export default async function page1({
       },
     }
   );
-  const genrelist = await fetch(
-    `https://api.themoviedb.org/3/genre/movie/list?language=en`,
-    {
-      headers: {
-        Authorization: `bearer ${TOKEN}`,
-        "Content-Type": "application/json",
-      },
-    }
-  );
+  // const genrelist = await fetch(
+  //   `https://api.themoviedb.org/3/genre/movie/list?language=en`,
+  //   {
+  //     headers: {
+  //       Authorization: `bearer ${TOKEN}`,
+  //       "Content-Type": "application/json",
+  //     },
+  //   }
+  // );
 
   // console.log("genre", data);
   // function formatVoteAverage(vote: number) {
@@ -78,7 +76,7 @@ export default async function page1({
   // console.log(dataVideos);
   const dataSimilar = await similarData.json();
   // console.log(dataSimilar);
-  const dataList = await genrelist.json();
+  // const dataList = await genrelist.json();
   // console.log(dataList);
   return (
     //style
@@ -182,7 +180,7 @@ export default async function page1({
             .slice(0, 5)
             .map((movie: MovieType, id: number) => {
               return (
-                <Link href={`/product/${movie.id}`}>
+                <Link href={`/product/${movie.id}`} key={id}>
                   <Card key={id}>
                     <div>
                       <Image

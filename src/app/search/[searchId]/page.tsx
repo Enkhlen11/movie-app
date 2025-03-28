@@ -36,7 +36,7 @@ export default function Page() {
         <p className="text-[24px] font-semibold">Search by genre</p>
         <p className="text-[16px] ">See lists movies by genre</p>
         <div className="flex flex-wrap justify-between items-center ">
-          {genres?.map((genre: GenreType, index: number) => {
+          {genres?.map((genre: GenreType) => {
             return <div key={genre.id}>{genre.name}</div>;
           })}
         </div>

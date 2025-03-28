@@ -21,7 +21,7 @@ function WatchTrailer({ movieId }: { movieId: number }) {
       return video.type === "Trailer";
     });
 
-    setKey(useTrailer.key);
+    setKey(useTrailer?.key);
   }
 
   useEffect(() => {
